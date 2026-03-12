@@ -1,6 +1,8 @@
-import { defineConfig } from 'astro/config'; 
+import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from "@astrojs/sitemap";
+
+import react from '@astrojs/react';
 
 export default defineConfig({
   vite: {
@@ -8,7 +10,7 @@ export default defineConfig({
   },
   site: 'https://desmond-achusi.vercel.app', // your live Vercel URL
   compressHTML: true,
-  integrations: [sitemap()],
+  integrations: [sitemap(), react()],
   build: {
     outDir: 'dist',   // Vercel will deploy from here
   },

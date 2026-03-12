@@ -1,23 +1,78 @@
 ---
 import BgGrid from "@/components/assets/BgGrid.astro";
+
+const certifications = [
+  {
+    title: "ISC2: Certified in Cybersecurity (CC)",
+    issuer: "ISC2",
+    link: "https://drive.google.com/file/d/1lLImZQEk59sDFB_706N1V7zkTBFWoqHA/view?usp=sharing"
+  },
+  {
+    title: "Security Risks in AI and Machine Learning",
+    issuer: "Pofessional Certificate",
+    link: "https://www.linkedin.com/learning/certificates/e0b02265a579ff177d583a6ef402108d110351163fc1759090ea7de85274a76b"
+  },
+  {
+    title: "Scrum Master Certified (SMC)",
+    issuer: "International Scrum Institute™",
+    link: "https://www.scrum-institute.org/certifications/Scrum-Institute.Org-SMACe1f05dead0-37185597928240.pdf"
+  },
+  {
+    title: "Cybersecurity Consulting",
+    issuer: "PwC Switzerland",
+    link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/PwC%20Switzerland/f9H4CHchzrKQbnbmK_PwC%20Switzerland_PsDemyneENCp5ifCD_1662372113725_completion_certificate.pdf"
+  }
+];
 ---
 
 <section class="border-white/10 border-b divide-y divide-white/10 bg-[#0a0a0a]">
   <div class="p-8 md:p-16 relative">
     <BgGrid />
-    <p
-      class="text-white font-bold uppercase tracking-tighter lg:text-6xl text-2xl relative leading-none"
-    >
-      Security is not about the absence of risk, but the <span class="text-[#ff5f1f]">resilience to survive it.</span>
-    </p>
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 relative">
+      <div>
+        <p class="text-[#ff5f1f] font-mono text-[10px] mb-4 tracking-[0.4em] uppercase opacity-60">
+          // Professional Validation
+        </p>
+        <h2 class="text-white font-bold uppercase tracking-tighter lg:text-7xl text-3xl leading-none">
+          45+ VERIFIED <span class="text-[#ff5f1f]">CREDENTIALS</span>
+        </h2>
+      </div>
+      <a 
+        href="https://www.linkedin.com/in/achusi-d-103754217/details/certifications/" 
+        target="_blank"
+        class="text-white/40 font-mono text-[10px] uppercase tracking-widest border border-white/10 px-4 py-2 hover:bg-white hover:text-black transition-colors"
+      >
+        View Full Registry _
+      </a>
+    </div>
   </div>
+
   <div class="p-8 md:p-16">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      <p class="text-white/60 font-medium uppercase lg:text-xl text-lg leading-tight">
-        I reject the idea that security must hinder usability. True infrastructure security should be <span class="text-white">transparent</span>, protecting the user without obstructing the workflow.
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {certifications.map((cert) => (
+        <a 
+          href={cert.link} 
+          target="_blank" 
+          class="group block p-6 border border-white/5 bg-white/[0.02] hover:border-[#ff5f1f]/50 transition-all duration-300"
+        >
+          <p class="text-[#ff5f1f] font-mono text-[9px] uppercase tracking-widest mb-3">{cert.issuer}</p>
+          <h3 class="text-white font-bold text-sm uppercase leading-tight group-hover:text-[#ff5f1f] transition-colors">
+            {cert.title}
+          </h3>
+          <div class="mt-6 flex items-center justify-between">
+            <span class="text-[10px] text-white/20 font-mono uppercase tracking-tighter">Verify License</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-3 text-white/20 group-hover:text-[#ff5f1f] transform group-hover:translate-x-1 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+      ))}
+    </div>
+    
+    <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row gap-8">
+      <p class="text-white/40 text-[10px] font-mono uppercase leading-relaxed max-w-sm">
+        Extensive certification coverage across <span class="text-white">Cybersecurity Operations</span>, <span class="text-white">AI/ML Failure Modes</span>, and <span class="text-white">Agile Frameworks</span>.
       </p>
-      <p class="text-white/60 font-medium uppercase lg:text-xl text-lg leading-tight">
-        Investing in security is not a diversion of resources; it is a <span class="text-white">preservation of value.</span> Robust defense ensures that innovation is not erased by a single point of failure.
+      <p class="text-white/40 text-[10px] font-mono uppercase leading-relaxed max-w-sm">
+        Strategic focus on <span class="text-white">Zero Trust Architecture</span> and <span class="text-white">Cloud Governance</span> to ensure resilient infrastructure deployments.
       </p>
     </div>
   </div>

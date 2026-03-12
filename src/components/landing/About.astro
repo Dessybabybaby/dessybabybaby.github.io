@@ -1,0 +1,49 @@
+---
+import BgGrid from "@/components/assets/BgGrid.astro";
+---
+
+<section id="about" class="border-b border-white/10 bg-[#0a0a0a]">
+  <div class="p-8 md:p-16 relative">
+    <BgGrid />
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div class="lg:col-span-4">
+        <p class="text-[#ff5f1f] font-mono text-[10px] mb-4 tracking-[0.4em] uppercase">// Professional Profile</p>
+        <h2 class="text-4xl font-bold text-white uppercase tracking-tighter">About Me</h2>
+      </div>
+      
+      <div class="lg:col-span-8 space-y-12">
+        <div class="space-y-8">
+          <h3 class="text-white/40 font-mono text-xs uppercase tracking-[0.2em]">Experience Timeline</h3>
+          
+          <div class="border-l border-white/10 pl-6 space-y-10">
+            <div class="relative">
+              <div class="absolute -left-[31px] top-1 h-3 w-3 rounded-full bg-[#ff5f1f]"></div>
+              <h4 class="text-white font-bold uppercase">ICT Officer | NNPC Limited</h4>
+              <p class="text-[#ff5f1f] font-mono text-[10px]">2024 — PRESENT</p>
+              <p class="text-white/50 text-sm mt-2">Specializing in productivity analytics (MTTR/FCR) and automated incident triage[cite: 16, 17].</p>
+            </div>
+            
+            <div class="relative">
+              <div class="absolute -left-[31px] top-1 h-3 w-3 rounded-full bg-white/20"></div>
+              <h4 class="text-white font-bold uppercase">Data Abstractor | Peltom Global Services</h4>
+              <p class="text-white/40 font-mono text-[10px]">2023</p>
+              <p class="text-white/50 text-sm mt-2">Investigated HIV/AIDS patient data quality using CIA principles[cite: 30, 32, 34].</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-8">
+          <h3 class="text-white/40 font-mono text-xs uppercase tracking-[0.2em] mb-6">Security & Agile Credentials</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {["ISC2 Cybersecurity", "Scrum Master (SMC)", "PwC Consulting", "AI/ML Security"].map(cert => (
+              <div class="p-4 border border-white/5 bg-white/[0.02] text-[10px] text-white/60 font-mono uppercase text-center">
+                {cert}
+              </div>
+            ))}
+          </div>
+          <p class="text-white/20 text-[9px] mt-4 uppercase text-center">+ 40 Additional Technical Certifications </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

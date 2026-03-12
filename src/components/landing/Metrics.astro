@@ -1,0 +1,102 @@
+---
+import BgGrid from "@/components/assets/BgGrid.astro";
+
+const metrics = [
+  {
+    value: 95,
+    suffix: "%",
+    label: "Triage Automation",
+    description: "Automated vulnerability monitoring via n8n.",
+    type: "ring"
+  },
+  {
+    value: 30,
+    suffix: "%",
+    label: "MTTR Reduction",
+    description: "Improved Mean Time To Repair through analytics.",
+    type: "bar"
+  },
+  {
+    value: 15,
+    suffix: "+",
+    label: "Credential Scanners",
+    description: "Active secret exposure detection logic.",
+    type: "scan"
+  }
+];
+---
+
+<section class="border-b border-white/10 bg-[#0a0a0a] overflow-hidden">
+  <div class="p-8 md:p-16 relative">
+    <BgGrid />
+    
+    <div class="relative z-10">
+      <p class="text-[#ff5f1f] font-mono text-[10px] mb-4 tracking-[0.4em] uppercase opacity-60">
+        // Real-Time Operational Impact
+      </p>
+      <h2 class="text-white font-bold uppercase tracking-tighter lg:text-7xl text-3xl leading-none mb-16">
+        VISUAL <span class="text-[#ff5f1f]">KPIs.</span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        
+        <div class="flex flex-col items-center text-center group">
+          <div class="relative h-48 w-48 mb-6 flex items-center justify-center">
+            <svg class="h-full w-full transform -rotate-90">
+              <circle cx="96" cy="96" r="80" stroke="currentColor" stroke-width="4" fill="transparent" class="text-white/5" />
+              <circle cx="96" cy="96" r="80" stroke="#ff5f1f" stroke-width="4" fill="transparent" 
+                stroke-dasharray="502.4" stroke-dashoffset="25.12" 
+                class="transition-all duration-1000 group-hover:stroke-white" />
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <span class="text-5xl font-black text-white">95%</span>
+            </div>
+          </div>
+          <p class="text-[#ff5f1f] font-mono text-xs uppercase tracking-widest mb-2">Triage Automation</p>
+          <p class="text-white/40 text-[10px] uppercase max-w-[200px]">Reduction in manual vulnerability monitoring via custom n8n pipelines.</p>
+        </div>
+
+        <div class="flex flex-col justify-center group">
+          <div class="space-y-6 mb-8">
+            <p class="text-white/40 font-mono text-[10px] uppercase">Mean Time To Repair (MTTR) Trend</p>
+            <div class="h-32 flex items-end gap-2 border-b border-white/10 pb-2">
+              {[60, 80, 45, 90, 30].map((h, i) => (
+                <div 
+                  class={`flex-1 transition-all duration-700 ${i === 4 ? 'bg-[#ff5f1f]' : 'bg-white/10 group-hover:bg-white/20'}`} 
+                  style={`height: ${h}%`}
+                ></div>
+              ))}
+            </div>
+          </div>
+          <p class="text-[#ff5f1f] font-mono text-xs uppercase tracking-widest mb-2">30% Efficiency Gain</p>
+          <p class="text-white/40 text-[10px] uppercase">Quantified reduction in response lag through productivity analytics.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center group">
+          <div class="relative h-48 w-48 mb-6 border border-white/10 rounded-full flex items-center justify-center overflow-hidden">
+             <div class="absolute inset-0 bg-gradient-to-tr from-[#ff5f1f]/20 to-transparent origin-center animate-spin" style="animation-duration: 3s;"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-full h-[1px] bg-white/5"></div>
+              <div class="h-full w-[1px] bg-white/5"></div>
+              <div class="w-24 h-24 rounded-full border border-white/5"></div>
+            </div>
+            <span class="relative z-10 text-5xl font-black text-white">15+</span>
+          </div>
+          <p class="text-[#ff5f1f] font-mono text-xs uppercase tracking-widest mb-2">Secret Types Monitored</p>
+          <p class="text-white/40 text-[10px] uppercase max-w-[200px]">Active scanning for credentials and API tokens across public repositories.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-spin {
+    animation: spin 3s linear infinite;
+  }
+</style>

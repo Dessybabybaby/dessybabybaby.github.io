@@ -1,42 +1,28 @@
 @import "tailwindcss";
 
-:root {
-  /* Fonts */
-  --font-sans: 'Geist', sans-serif;
-  --font-mono: 'Geist Mono', monospace;
+@layer base {
+  :root {
+    --color-black: #0a0a0a;
+    --color-white: #e7e7d8;
+    --color-orange-accent: #ff5f1f;
+    --font-sans: 'Geist', sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+  }
+}
 
-  /* Colors */
-  --color-black: #1e1e1e;
-  --color-white: #e7e7d8;
-  --color-eagle: #afac95;
-  --color-orange: #ea4125;
+/* Custom Utilities defined with standard CSS */
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
 
-  /* Gradient background */
-  --background-image-grid:
-    repeating-linear-gradient(
-      to right,
-      rgba(205, 205, 205, 0.2) 0px,
-      rgba(205, 205, 205, 0.2) 1px,
-      transparent 1px,
-      transparent 6px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      rgba(205, 205, 205, 0.2) 0px,
-      rgba(205, 205, 205, 0.2) 1px,
-      transparent 1px,
-      transparent 6px
-    );
-
-  /* Animation */
-  --animate-marquee: marquee 50s linear infinite;
+.animate-marquee {
+  animation: marquee 40s linear infinite;
 }
 
 @keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }

@@ -1,0 +1,81 @@
+---
+import BgGrid from "@/components/assets/BgGrid.astro";
+
+const skillCategories = [
+  {
+    title: "Security & DevSecOps",
+    skills: ["Vulnerability Monitoring", "Credential Secret Scanning", "OSINT Recon", "Threat Intelligence", "Log Analysis", "Zero Trust Architecture"]
+  },
+  {
+    title: "Automation & Scripting",
+    skills: ["n8n Workflows", "Python", "JavaScript", "IT Automation", "Data Pipelines", "API Integration", "Regex Optimization"]
+  },
+  {
+    title: "Strategic & Management",
+    skills: ["Scrum / Agile", "Productivity Analytics", "Technical Mentorship", "Stakeholder Management", "ICT Consultation", "Cyberpsychology"]
+  }
+];
+---
+
+<section class="border-b border-white/10 bg-[#0a0a0a] overflow-hidden">
+  <div class="p-8 md:p-16 relative">
+    <BgGrid />
+    
+    <div class="relative z-10">
+      <p class="text-[#ff5f1f] font-mono text-[10px] mb-4 tracking-[0.4em] uppercase opacity-60">
+        // Technical Arsenal
+      </p>
+      <h2 class="text-white font-bold uppercase tracking-tighter lg:text-7xl text-3xl leading-none mb-16">
+        CORE <span class="text-[#ff5f1f]">COMPETENCIES.</span>
+      </h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
+        {skillCategories.map((category) => (
+          <div class="bg-[#0a0a0a] p-10 hover:bg-white/[0.02] transition-colors group">
+            <h3 class="text-[#ff5f1f] font-mono text-xs uppercase tracking-[0.2em] mb-8 border-b border-[#ff5f1f]/20 pb-4">
+              {category.title}
+            </h3>
+            
+            <div class="flex flex-wrap gap-3">
+              {category.skills.map((skill) => (
+                <div class="flex items-center gap-2 px-3 py-2 border border-white/5 bg-white/[0.03] group-hover:border-[#ff5f1f]/30 transition-all duration-500">
+                  <div class="w-1 h-1 bg-[#ff5f1f] rounded-full animate-pulse"></div>
+                  <span class="text-white/60 text-[11px] font-mono uppercase tracking-tight group-hover:text-white transition-colors">
+                    {skill}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-16 flex overflow-hidden border-y border-white/5 py-6 select-none group">
+        <div class="flex gap-12 animate-marquee whitespace-nowrap">
+          {["PYTHON", "N8N", "JAVASCRIPT", "CYBERSECURITY", "AGILE", "OSINT", "DEVSECOPS", "NETWORK SECURITY"].map((tech) => (
+            <span class="text-white/10 text-4xl font-black uppercase tracking-tighter group-hover:text-[#ff5f1f]/20 transition-colors">
+              {tech}
+            </span>
+          ))}
+        </div>
+        <div class="flex gap-12 animate-marquee whitespace-nowrap" aria-hidden="true">
+          {["PYTHON", "N8N", "JAVASCRIPT", "CYBERSECURITY", "AGILE", "OSINT", "DEVSECOPS", "NETWORK SECURITY"].map((tech) => (
+            <span class="text-white/10 text-4xl font-black uppercase tracking-tighter group-hover:text-[#ff5f1f]/20 transition-colors">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+</style>
