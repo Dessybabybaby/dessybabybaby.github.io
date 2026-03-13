@@ -2,112 +2,85 @@
 import BgGrid from "@/components/assets/BgGrid.astro";
 ---
 
-<section class="border-b border-white/10 bg-[#0a0a0a] overflow-hidden">
-  <div class="px-8 py-12 relative border-b border-white/10">
+<section id="case-study" class="border-b border-white/10 bg-[#0a0a0a] overflow-hidden divide-y divide-white/10">
+  <div class="p-8 md:p-16 relative">
     <BgGrid />
-    <p class="text-[#ff5f1f] font-mono text-[10px] mb-4 tracking-[0.4em] uppercase opacity-60 relative">
-      // Featured Architecture
-    </p>
-    <h2 class="text-3xl md:text-5xl font-bold text-white uppercase tracking-tighter relative">
-      Case Study: <span class="text-[#ff5f1f]">CVE-RSS Alert System</span>
-    </h2>
+    <div class="relative">
+      <p class="text-[#ff5f1f] font-mono text-[10px] mb-4 tracking-[0.4em] uppercase opacity-60">
+        // Featured Architecture
+      </p>
+      <h2 class="text-white text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+        CVE-RSS <span class="text-white/20">ALERT SYSTEM.</span>
+      </h2>
+    </div>
   </div>
 
-  <div class="grid grid-cols-1 lg:grid-cols-12">
-    <div class="lg:col-span-7 p-8 md:p-16 border-b lg:border-b-0 lg:border-r border-white/10">
+  <div class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-white/10">
+    <div class="lg:col-span-7 p-8 md:p-16">
       
-      <div class="mb-16">
-        <div class="flex items-center gap-4 mb-4">
-          <span class="text-[#ff5f1f] font-mono text-xl">01</span>
-          <h3 class="text-white text-2xl font-bold uppercase italic">Problem Analysis</h3>
-        </div>
-        <p class="text-white/60 leading-relaxed max-w-2xl mb-4">
-          Security teams face "Alert Fatigue" from manual monitoring of NVD and CISA databases. Manually parsing RSS feeds results in a <strong>4-6 hour delay</strong> between vulnerability publication and internal triage, leaving a critical window open for exploitation.
+      {/* Problem Analysis */}
+      <div class="mb-20">
+        <h3 class="text-white text-xs font-mono uppercase tracking-[0.3em] mb-6 flex items-center gap-3">
+          <span class="h-1.5 w-1.5 bg-[#ff5f1f]"></span> Problem Analysis
+        </h3>
+        <p class="text-white/60 text-lg leading-relaxed max-w-2xl mb-6 font-light">
+          Security teams face "Alert Fatigue" from manual monitoring of NVD and CISA databases. Manually parsing RSS feeds results in a <strong class="text-white">4-6 hour delay</strong> between vulnerability publication and internal triage, leaving a critical window open for exploitation.
         </p>
         <div class="flex gap-2">
-          <span class="px-3 py-1 bg-red-500/10 border border-red-500/20 text-red-500 text-[10px] uppercase font-mono">Slow Response</span>
-          <span class="px-3 py-1 bg-red-500/10 border border-red-500/20 text-red-500 text-[10px] uppercase font-mono">Manual Triage</span>
+          <span class="px-3 py-1 border border-white/10 text-white/40 text-[9px] uppercase font-mono tracking-widest">Slow Response</span>
+          <span class="px-3 py-1 border border-white/10 text-white/40 text-[9px] uppercase font-mono tracking-widest">Manual Triage</span>
         </div>
       </div>
 
-      <div class="mb-16">
-        <div class="flex items-center gap-4 mb-4">
-          <span class="text-[#ff5f1f] font-mono text-xl">02</span>
-          <h3 class="text-white text-2xl font-bold uppercase italic">Solution Design</h3>
-        </div>
-        <p class="text-white/60 leading-relaxed max-w-2xl">
-          I designed an event-driven pipeline using <strong>n8n</strong> to automate the entire lifecycle of a vulnerability. The system architecture includes:
+      {/* Solution Design */}
+      <div class="mb-20">
+        <h3 class="text-white text-xs font-mono uppercase tracking-[0.3em] mb-6 flex items-center gap-3">
+          <span class="h-1.5 w-1.5 bg-[#ff5f1f]"></span> Solution Design
+        </h3>
+        <p class="text-white/60 leading-relaxed max-w-2xl mb-8">
+          I designed an event-driven pipeline using <strong class="text-white">n8n</strong> to automate the entire lifecycle of a vulnerability. The system architecture includes:
         </p>
-        <ul class="mt-4 space-y-3 text-sm text-white/80 font-light">
-          <li class="flex gap-2">
-            <span class="text-[#ff5f1f]">→</span> 
-            <strong>CISA/NVD Ingestion:</strong> Real-time polling via RSS and REST API.
-          </li>
-          <li class="flex gap-2">
-            <span class="text-[#ff5f1f]">→</span> 
-            <strong>State Management:</strong> Google Sheets acts as a lightweight DB to track "Seen" CVEs and prevent alert duplication.
-          </li>
-          <li class="flex gap-2">
-            <span class="text-[#ff5f1f]">→</span> 
-            <strong>Dynamic Risk Scoring:</strong> Custom JS node to parse multi-version CVSS (3.1, 3.0, 2.0) and route by severity.
-          </li>
-        </ul>
+        <div class="space-y-3">
+          {[
+            { label: "CISA/NVD Ingestion", desc: "Real-time polling via RSS and REST API." },
+            { label: "State Management", desc: "Google Sheets acts as a lightweight DB to track 'Seen' CVEs and prevent alert duplication." },
+            { label: "Dynamic Risk Scoring", desc: "Custom JS node to parse multi-version CVSS (3.1, 3.0, 2.0) and route by severity." }
+          ].map(item => (
+            <div class="group p-4 border border-white/5 bg-white/[0.01] hover:border-[#ff5f1f]/20 transition-colors">
+               <p class="text-[#ff5f1f] font-mono text-[10px] uppercase mb-1">{item.label}</p>
+               <p class="text-white/40 text-sm font-light italic">{item.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Stack & Metrics Grid */}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-white/5">
         <div>
-          <h4 class="text-white font-bold uppercase text-xs tracking-widest mb-4 opacity-40">The Stack</h4>
+          <h4 class="text-white/20 font-mono text-[10px] uppercase tracking-widest mb-6">Technical Stack</h4>
           <div class="flex flex-wrap gap-2">
             {["n8n", "NVD API v2.0", "Regex", "Javascript", "Google Sheets", "Gmail"].map(tech => (
-              <span class="text-[10px] font-mono text-white/40 border border-white/5 px-2 py-1">{tech}</span>
+              <span class="text-[9px] font-mono text-white/40 border border-white/10 px-3 py-1 bg-white/5 uppercase">{tech}</span>
             ))}
           </div>
         </div>
         <div>
-          <h4 class="text-white font-bold uppercase text-xs tracking-widest mb-4 opacity-40">Impact Metrics</h4>
-          <ul class="text-[#ff5f1f] font-mono text-xs space-y-1">
-            <li>+ 95% Reduction in Triage Time</li>
-            <li>+ Zero Duplicated Alerts</li>
-            <li>+ Instant Critical Notification</li>
+          <h4 class="text-white/20 font-mono text-[10px] uppercase tracking-widest mb-6">Impact Metrics</h4>
+          <ul class="text-white font-mono text-xs space-y-3">
+            <li class="flex items-center gap-2 font-bold"><span class="text-[#ff5f1f]">+</span> 95% REDUCTION IN TRIAGE TIME</li>
+            <li class="flex items-center gap-2 font-bold"><span class="text-[#ff5f1f]">+</span> ZERO DUPLICATED ALERTS</li>
+            <li class="flex items-center gap-2 font-bold"><span class="text-[#ff5f1f]">+</span> INSTANT CRITICAL NOTIFICATION</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="lg:col-span-5 bg-white/[0.02] p-8 md:p-16 flex flex-col justify-center">
-      <div class="border border-white/10 p-6 bg-black/40 backdrop-blur-sm relative">
-        <div class="absolute -top-3 -left-3 bg-[#ff5f1f] text-black text-[10px] font-black px-2 py-1 uppercase">
-          Logic: Risk_Scoring.js
-        </div>
-        <pre class="text-[11px] leading-relaxed text-white/40 overflow-x-auto">
-<code>{`// Extracted from n8n Workflow
-if (score >= 9) {
-  severity = "CRITICAL";
-  decision = "alert"; // Instant Gmail
-} else if (score >= 7.5) {
-  severity = "HIGH";
-  decision = "review"; // Manual Check
-} else {
-  severity = "LOW/MED";
-  decision = "log"; // Audit Only
-}`}</code>
-        </pre>
-      </div>
-
-      <div class="mt-12">
-        <h4 class="text-white text-xl font-bold uppercase mb-4">Lessons Learned</h4>
-        <p class="text-white/50 text-sm leading-relaxed mb-6">
-          The biggest challenge was handling the NVD API rate limits and data inconsistency between CVSS versions. I optimized the workflow by implementing a <strong>Lookup node</strong> that only queries the API if the CVE is not already in the audit log, saving hundreds of unnecessary API calls daily.
-        </p>
-        <a 
-          href="https://github.com/Dessybabybaby/cve-rss-alert-system" 
-          target="_blank"
-          class="inline-flex items-center gap-2 text-[#ff5f1f] text-[10px] font-black uppercase tracking-widest hover:underline"
-        >
-          View Full JSON Workflow 
-          <svg xmlns="http://www.w3.org/2000/svg" class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="lg:col-span-5 bg-white/[0.01] p-8 md:p-16 flex flex-col divide-y divide-white/5">
+      
+      {/* Code Snippet Card */}
+      <div class="pb-16">
+        <div class="border border-white/10 bg-black/40 backdrop-blur-sm relative rounded-sm overflow-hidden">
+          <div class="bg-[#ff5f1f] text-black text-[9px] font-black px-3 py-1 uppercase tracking-tighter">
+            Logic: Risk_Scoring.js
+          </div>
+          <pre class="p-6 text-[11px] leading-relaxed text-white/50 overflow-x-auto font-
